@@ -1,0 +1,40 @@
+<!-- cart.component.html -->
+<div class="container">
+    <h1 class="text-center mt-4 mb-4">Shopping Cart</h1>
+    <ng-container *ngIf="(cartItems$ | async) as cartItems">
+        <div *ngIf="cartItems && cartItems.length > 0">
+            <div class="row cart-item" *ngFor="let component of cartItems; let i = index">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <img class="card-img-top" [src]="component.image" alt="{{ component.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ component.name }}</h5>
+                            <p class="card-text">{{ component.description }}</p>
+                            <p class="card-text">Price: {{ component.price }} €</p>
+                            <!-- Champ d'entrée pour la quantité -->
+                            <input type="number" class="form-control mb-2" [(ngModel)]="component.quantity"
+                                (change)="updateQuantity(component)" min="1">
+                            <!-- Ajoutez min="1" pour limiter la quantité à 1 ou plus -->
+                            <button class="btn btn-danger btn-block" (click)="removeFromCart(component)">Remove from
+                                Cart</button>
+                            <!-- Remove from Cart Button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-details mt-3">
+                <h5 class="text-center">Total: {{ getTotal() | async }} €</h5>
+                <div class="text-center">
+                    <!-- Confirm Payment Button -->
+                    <button class="btn btn-danger" (click)="cancelOrder()">Cancel Order</button>
+                    <!-- Cancel Order Button -->
+                    <button class="btn btn-primary" (click)="updateCart()">Update Cart</button>
+                    <!-- Update Cart Button -->
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!cartItems || cartItems.length === 0" class="text-center">
+            <p>Your cart is empty</p>
+        </div>
+    </ng-container>
+</div>

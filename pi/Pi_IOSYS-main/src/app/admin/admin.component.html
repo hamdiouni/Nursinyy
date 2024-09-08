@@ -1,0 +1,43 @@
+<!-- admin.component.html -->
+<div class="container">
+    <h2>Admin Dashboard</h2>
+
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/allusers">All Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/listadmin">list product</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/addcomp">add product</a>
+        </li>
+
+        <li class="nav-item">
+            <button class="btn nav-link" [routerLink]="['/dash']" [routerLinkActive]="'active'">Dashboard</button>
+        </li>
+    </ul>
+
+    <div *ngIf="users && users.length > 0">
+        <h3>All Users</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" [routerLink]="['/updateuser', user._id]">Update</a>
+                        <a class="btn btn-danger btn-sm" [routerLink]="['/deleteuser', user._id]">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

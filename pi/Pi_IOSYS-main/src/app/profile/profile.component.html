@@ -1,0 +1,6 @@
+<div *ngIf="userProfile">
+    <h1>Profile</h1>
+    <p><strong>Username:</strong> {{ userProfile.username }}</p>
+    <p *ngIf="paymentConfirmed">Payment confirmed!</p> <!-- Affichez la confirmation de paiement -->
+
+</div>

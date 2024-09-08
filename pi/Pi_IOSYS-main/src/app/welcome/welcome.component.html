@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Page</title>
+    <!-- Link to Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            color: #1F4F74;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .service-item {
+            margin-bottom: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-title {
+            color: #1F4F74;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .service-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 10px;
+            color: #1F4F74;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+
+        .map {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .map:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-link {
+            color: #1F4F74;
+            transition: color 0.3s;
+            margin-right: 10px;
+        }
+
+        .social-link:hover {
+            color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color: #fff;
+            /* Changement de couleur au survol */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Our Services</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="service-item">
+                    <img src="assets/images/object_detection.jpg" alt="Object Detection" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Object Detection</h3>
+                        <p class="service-description">Our project provides advanced object detection capabilities using
+                            cutting-edge computer vision algorithms, allowing for accurate and efficient identification
+                            of objects in various environments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="service-item">
+                    <img src="assets/images/patient_mood_prediction.jpg" alt="Prediction of Patient Mood"
+                        class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Prediction of Patient Mood</h3>
+                        <p class="service-description">We utilize machine learning techniques to predict the mood of
+                            patients based on various factors, aiding healthcare professionals in providing personalized
+                            care and support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="service-item">
+                    <img src="assets/images/data_collection.jpg" alt="Real-Time Data Collection" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Real-Time Data Collection</h3>
+                        <p class="service-description">Our system collects data in real-time from various sources,
+                            enabling continuous monitoring and analysis for better decision-making and optimization of
+                            healthcare processes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="service-item">
+                    <img src="assets/images/wireless_devices_management.jpg" alt="Wireless Devices Management"
+                        class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Wireless Devices Management</h3>
+                        <p class="service-description">We offer solutions for managing wireless devices efficiently,
+                            ensuring seamless connectivity and communication within the healthcare environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="service-item">
+                    <img src="assets/images/energy_efficiency.jpg" alt="Energy Efficiency" class="service-image">
+                    <div class="service-content">
+                        <h3 class="service-title">Energy Efficiency</h3>
+                        <p class="service-description">Our project focuses on energy-efficient solutions to minimize
+                            power consumption and reduce environmental impact while maintaining optimal performance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>About Our Project</h2>
+        <img src="assets/images/robot_assistance_medical.jpg" alt="Medical Assistance Robot" class="robot-image">
+        <p>Our project involves a medical assistance robot designed to help medical personnel in their daily tasks and
+            to improve the quality of care provided to patients. This robot is equipped with advanced technologies such
+            as artificial intelligence, computer vision, and robotics, enabling it to perform various tasks including
+            patient monitoring, delivery of medication and supplies, and even interaction with patients to provide them
+            with information and emotional support.</p>
+        <p>Our multidisciplinary team of healthcare professionals, robotics engineers, and artificial intelligence
+            experts works together to develop and continuously improve our medical assistance robot, with the aim of
+            meeting the changing needs of the healthcare sector and providing innovative solutions to improve healthcare
+            delivery.</p>
+        <p>We are passionate about our mission to integrate cutting-edge technology into the medical field to offer
+            innovative solutions that can have a positive impact on the lives of patients and healthcare professionals.
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+
+        <div class="contact-info">
+            <h3>Address:</h3>
+            <p>L'Aounia, Tunis, Tunisia</p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Email:</h3>
+            <p><a href="mailto:Nursiny@esprit.tn">Nursiny@esprit.tn</a></p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Phone Number:</h3>
+            <p>21483944</p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Follow Us:</h3>
+            <a href="https://www.facebook.com/Nursiny" target="_blank" class="social-link"><i
+                    class="fab fa-facebook"></i>
+                Facebook</a>
+            <a href="https://www.instagram.com/Nursiny" target="_blank" class="social-link"><i
+                    class="fab fa-instagram"></i>
+                Instagram</a>
+        </div>
+
+        <!-- Embedding Google Maps -->
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.6340283645453!2d10.167921315238905!3d36.86022057993519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd353945799229%3A0xd4b14773e2205c89!2sLa%20Manouba!5e0!3m2!1sen!2stn!4v1648833699569!5m2!1sen!2stn"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- Link to Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Link to jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Link to Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

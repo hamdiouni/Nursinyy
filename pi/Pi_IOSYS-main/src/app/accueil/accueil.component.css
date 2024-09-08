@@ -1,0 +1,12 @@
+.container {
+    text-align: center;
+    margin-top: 20px;
+
+
+}
+
+.button-space {
+    margin-left: 10px;
+
+    /* Ajoutez l'espace souhaité entre les boutons */
+}

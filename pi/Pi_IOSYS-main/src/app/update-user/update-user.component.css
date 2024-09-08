@@ -1,0 +1,56 @@
+/* update-user.component.css */
+.container {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.alert {
+    color: #721c24;
+    /* Text color (red) */
+    background-color: #f8d7da;
+    /* Alert background color */
+    border-color: #f5c6cb;
+    /* Border color */
+    padding: .75rem 1.25rem;
+    /* Padding */
+    margin-bottom: 1rem;
+    /* Margin at bottom */
+    border: 1px solid transparent;
+    /* Transparent border */
+    border-radius: .25rem;
+    /* Border radius */
+}
+
+.alert-danger {
+    color: #721c24;
+    /* Text color (red) */
+    background-color: #f8d7da;
+    /* Alert background color */
+    border-color: #f5c6cb;
+    /* Border color */
+}

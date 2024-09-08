@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site</title>
+    <!-- Lien vers la feuille de style Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Lien vers la bibliothèque Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            color: #1F4F74;
+            transition: color 0.3s;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand:hover {
+            color: #007bff;
+        }
+
+        .nav-link {
+            color: #1F4F74;
+            transition: color 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+        .navbar-toggler-icon {
+            border: none;
+            width: 30px;
+            height: 30px;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwIDEwVjEwSDBWMjBIMFYxMHoiLz4KPC9zdmc+Cg==');
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .navbar-nav .active .nav-link {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+        .navbar-nav .btn {
+            background-color: transparent;
+            border: none;
+        }
+
+        .navbar-nav .btn:focus {
+            outline: none;
+        }
+
+        .navbar-nav .btn:hover {
+            color: #007bff;
+            background-color: rgba(0, 123, 255, 0.1);
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border-radius: 0.25rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a routerlink="/welcome" class="navbar-brand">Nursiny</a>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <button class="btn nav-link" [routerLink]="['/welcome']" [routerLinkActive]="'active'">Home</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn nav-link" [routerLink]="['/apropos']" [routerLinkActive]="'active'">About
+                        Us</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn nav-link" [routerLink]="['/nos_services']"
+                        [routerLinkActive]="'active'">Services</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn nav-link" [routerLink]="['/contacts']"
+                        [routerLinkActive]="'active'">Contact</button>
+                </li>
+
+
+                <li class="nav-item">
+                    <button class="btn nav-link" [routerLink]="['/stat']" [routerLinkActive]="'active'">Data</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn nav-link" [routerLink]="['/component']"
+                        [routerLinkActive]="'active'">Store</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn nav-link" [routerLink]="['/cart']" [routerLinkActive]="'active'">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn nav-link" [routerLink]="['/profile']"
+                        [routerLinkActive]="'active'">Profile</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn logout-btn" (click)="logout()">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Lien vers la bibliothèque jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Lien vers la bibliothèque Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

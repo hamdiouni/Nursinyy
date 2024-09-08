@@ -1,0 +1,38 @@
+<form [formGroup]="componentForm" (ngSubmit)="updateComponent()">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <div *ngIf="name!.invalid && name!.touched" class="text-danger">
+            Name is required.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" formControlName="description"></textarea>
+        <div *ngIf="description!.invalid && description!.touched" class="text-danger">
+            Description is required.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" class="form-control" id="price" formControlName="price">
+        <div *ngIf="price!.invalid && price!.touched" class="text-danger">
+            Price is required.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="image">Image URL:</label>
+        <input type="text" class="form-control" id="image" formControlName="image">
+        <div *ngIf="image!.invalid && image!.touched" class="text-danger">
+            Image URL is required.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input type="number" class="form-control" id="quantity" formControlName="quantity">
+        <div *ngIf="quantity!.invalid && quantity!.touched" class="text-danger">
+            Quantity is required.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="componentForm.invalid">Update Component</button>
+</form>

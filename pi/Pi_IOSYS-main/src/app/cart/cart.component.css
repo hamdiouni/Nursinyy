@@ -1,0 +1,11 @@
+.card-img-top {
+    width: 100%;
+    height: auto;
+    /* Ajustez la hauteur en fonction de la largeur */
+    max-height: 100px;
+    /* Hauteur maximale des images */
+    object-fit: contain;
+    /* Ajustement de la taille de l'image */
+    border-radius: 5px 5px 0 0;
+    /* Coins arrondis uniquement en haut */
+}

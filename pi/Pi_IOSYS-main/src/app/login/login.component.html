@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Lien vers la feuille de style Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 30px;
+        }
+
+        /* Style des boutons */
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: 2px solid #007bff;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Animation pour les champs de formulaire */
+        .form-control {
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: none;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Style des alertes */
+        .alert {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            border-radius: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Animation de survol pour les alertes */
+        .alert:hover {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        /* Espacement entre les éléments */
+        .button-space {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form [formGroup]="loginform" (ngSubmit)="login()" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" formControlName="username" class="form-control" id="username"
+                    placeholder="Enter username" required>
+                <div *ngIf="username!.touched && username!.invalid" class="alert">
+                    username required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" formControlName="password" class="form-control" id="password"
+                    placeholder="Enter password" required>
+
+                <div *ngIf="password!.touched && password!.invalid" class="alert">
+                    password required
+                </div>
+            </div>
+            <div class="button-space"></div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <h2>Forgot Password</h2>
+        <form [formGroup]="forgotPasswordForm" (ngSubmit)="forgotPassword()" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="Enter email"
+                    required>
+                <div *ngIf="email!.touched && email!.invalid" class="alert">
+                    email required
+                </div>
+            </div>
+            <div class="button-space"></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Lien vers la bibliothèque jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Lien vers la bibliothèque Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

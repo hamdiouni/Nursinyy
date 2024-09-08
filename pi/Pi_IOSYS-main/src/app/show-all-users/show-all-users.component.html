@@ -1,0 +1,28 @@
+<!-- show-all-users.component.html -->
+<button class="btn btn-primary mb-3" [routerLink]="['/admin']">Back</button>
+
+<div class="container">
+    <h2>All Users</h2>
+
+    <div *ngIf="users && users.length > 0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" [routerLink]="['/updateuser', user._id]">Update</a>
+                        <button class="btn btn-danger" (click)="deleteUser(user._id)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

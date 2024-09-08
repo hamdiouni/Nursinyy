@@ -1,0 +1,33 @@
+<button class="btn btn-primary mb-3" [routerLink]="['/admin']">Back</button>
+
+<div class="container">
+
+    <h2>List of Components</h2>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let component of components">
+                <td>{{ component.name }}</td>
+                <td>{{ component.description }}</td>
+                <td>{{ component.price }}</td>
+                <td [ngStyle]="{'color': component.quantity > 0 ? 'green' : 'red'}">
+                    {{ component.quantity > 0 ? 'In Stock' : 'Out of Stock' }}
+                </td>
+                <td>
+                    <button class="btn btn-info" [routerLink]="['/updatecomp']">Update</button>
+                    <button class="btn btn-danger" (click)="deleteComponent(component.name)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

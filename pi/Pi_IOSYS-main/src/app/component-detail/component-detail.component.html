@@ -1,0 +1,36 @@
+<div *ngIf="component" class="container component-detail">
+    <h2>{{ component.name }}</h2>
+    <p>{{ component.description }}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Details</h5>
+                    <p class="card-text">Price: {{ component.price }} €</p>
+                    <img class="card-img-top" src="assets/images/{{ component.image }}">
+
+                    <button class="btn btn-primary buy-button" (click)="addToCart()">Add to Cart <i
+                            class="fas fa-shopping-cart shopping-cart-icon"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Afficher les avis des utilisateurs -->
+    <div class="card-footer">
+        <div class="review-section">
+            <h5>User Rating:</h5>
+            <div *ngIf="userReviews$ | async as reviews">
+                <div *ngIf="reviews.length > 0; else noReviews">
+                    <div *ngFor="let review of reviews">
+                        <p>{{ review.rating }}</p>
+                        <!-- Ajoutez d'autres détails d'avis ici selon vos besoins -->
+                    </div>
+                </div>
+                <ng-template #noReviews>
+                    <p>No reviews yet.</p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+
+</div>

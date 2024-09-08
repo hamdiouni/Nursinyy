@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Components</title>
+    <!-- Link to Bootstrap stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to Bootstrap Icons library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS for search form */
+        .search-form {
+            margin-bottom: 20px;
+        }
+
+        .search-form .input-group {
+            width: 100%;
+        }
+
+        .search-form .form-control {
+            border-radius: 20px 0 0 20px;
+        }
+
+        .search-form .input-group-append {
+            margin-left: -40px;
+        }
+
+        /* CSS for component list */
+        .components-list {
+            margin-top: 20px;
+        }
+
+        .component-item {
+            margin-bottom: 20px;
+        }
+
+        .component-item .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .component-item .card-img-top {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .component-item .card-body {
+            padding: 20px;
+        }
+
+        .component-item .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .component-item .card-text {
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .component-item .btn {
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .component-item .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .component-item .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .component-item .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .component-item .btn-success:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+        /* CSS for stock status */
+        .in-stock {
+            color: green;
+        }
+
+        .out-of-stock {
+            color: red;
+        }
+
+        /* CSS for review section */
+        .review-section {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Search form -->
+    <div class="search-form">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for components" [(ngModel)]="searchTerm"
+                (input)="searchComponents()" aria-label="Search" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>Product List</h2>
+
+    <div *ngIf="components.length === 0">No products found</div>
+
+    <div *ngFor="let component of visibleComponents" class="component-item">
+        <div class="card">
+            <img [src]="component.image" alt="{{ component.name }}" class="card-img-top">
+            <div class="card-body">
+                <h3 class="card-title">{{ component.name }}</h3>
+                <p class="card-text">{{ component.description }}</p>
+                <p class="card-text">Price: {{ component.price }}</p>
+                <p class="card-text">Quantity: {{ component.quantity }}</p>
+                <!-- Afficher le statut de stock -->
+                <p class="card-text">
+                    <span [ngClass]="{ 'in-stock': component.quantity > 0, 'out-of-stock': component.quantity <= 0 }">
+                        {{ component.quantity > 0 ? 'In stock' : 'Out of stock' }}
+                    </span>
+                </p>
+                <!-- Rating -->
+                <div class="form-group">
+                    <label for="rating">User Rating:</label>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary excellent"
+                            (click)="addReview('Excellent', component.name)">Excellent</button>
+                        <button type="button" class="btn btn-secondary good"
+                            (click)="addReview('Good', component.name)">Good</button>
+                        <button type="button" class="btn btn-secondary average"
+                            (click)="addReview('Average', component.name)">Average</button>
+                        <button type="button" class="btn btn-secondary poor"
+                            (click)="addReview('Poor', component.name)">Poor</button>
+                    </div>
+                </div>
+
+
+                <button class="btn btn-primary" (click)="addToCart(component)">Add to Cart</button>
+            </div>
+            <!-- Afficher les avis des utilisateurs -->
+            <div class="card-footer">
+                <h5>User Rating: </h5>
+                <div *ngIf="userReviews$ | async as reviews">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Rating</th>
+                                <!-- Ajoutez d'autres en-têtes de colonnes selon vos besoins -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="reviews.length > 0; else noReviews">
+                                <tr *ngFor="let review of reviews">
+                                    <td>{{ review.rating }}</td>
+                                    <!-- Ajoutez d'autres colonnes selon vos besoins -->
+                                </tr>
+                            </ng-container>
+                            <ng-template #noReviews>
+                                <tr>
+                                    <td colspan="2" class="no-reviews">No reviews yet.</td>
+                                </tr>
+                            </ng-template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div *ngIf="totalPages > 1">
+        <button class="btn btn-secondary" (click)="previousPage()">Previous Page</button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="btn btn-secondary" (click)="nextPage()">Next Page</button>
+    </div>
+
+    <!-- Integration of component-detail -->
+    <app-component-detail *ngIf="selectedComponent" routerLink="/'component/:id"></app-component-detail>
+
+    <script>
+        function setRating(component, rating) {
+            if (!component.reviews) {
+                component.reviews = [];
+            }
+            component.reviews.push({ rating: rating });
+        }
+    </script>
+</body>
+
+</html>

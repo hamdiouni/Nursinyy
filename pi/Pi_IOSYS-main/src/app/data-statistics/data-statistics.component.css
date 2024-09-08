@@ -1,0 +1,43 @@
+/* Importation de Bootstrap */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/* Styles CSS personnalisés */
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    /* Ajout de padding pour espacer le contenu */
+}
+
+canvas {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Animation pour le graphique */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Style personnalisé pour le graphique */
+#chart {
+    animation: fadeIn 1s ease;
+    /* Animation de fondu */
+    border: 1px solid #000;
+    /* Bordure du graphique */
+}
+
+/* Styles pour les boutons */
+.btn-group {
+    margin-bottom: 20px;
+}
+
+.btn {
+    margin-right: 10px;
+}

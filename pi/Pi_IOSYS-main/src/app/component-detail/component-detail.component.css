@@ -1,0 +1,70 @@
+/* styles.css */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+/* Styles personnalisés */
+.components-list {
+    padding: 20px;
+}
+
+.component-item {
+    margin-bottom: 20px;
+}
+
+.component-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.component-detail {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-button:hover {
+    background-color: #0056b3;
+}
+
+.shopping-cart-icon {
+    color: #007bff;
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.cart-details {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.cart-item {
+    margin-bottom: 10px;
+}
+
+.cart-total {
+    font-weight: bold;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    /* Ajustez la hauteur en fonction de la largeur */
+    max-height: 100px;
+    /* Hauteur maximale des images */
+    object-fit: contain;
+    /* Ajustement de la taille de l'image */
+    border-radius: 5px 5px 0 0;
+    /* Coins arrondis uniquement en haut */
+}
